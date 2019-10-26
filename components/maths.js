@@ -6,7 +6,7 @@ import Swiper from 'react-native-deck-swiper';
 
 const window = Dimensions.get('window');
 
-export default class App extends React.Component {
+export default class Maths extends React.Component {
   state = {
     mathTrivia: [],
     triviaIds: {},

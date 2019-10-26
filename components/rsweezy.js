@@ -6,7 +6,7 @@ import Swiper from 'react-native-deck-swiper';
 
 const window = Dimensions.get('window');
 
-export default class App extends React.Component {
+export default class Ron extends React.Component {
   state = {
     mathTrivia: [],
     triviaIds: {},
@@ -24,7 +24,7 @@ export default class App extends React.Component {
   }
 
   newTrivia = () => {
-    return fetch("http://numbersapi.com/random/year?json", {
+    return fetch("http://ron-swanson-quotes.herokuapp.com/v2/quotes", {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -40,7 +40,7 @@ export default class App extends React.Component {
         this.setState((prevState) => ({
           triviaIds: {
             ...prevState.triviaIds,
-            [trivia.text]: true,
+            [trivia]: true,
           }
         }));
 
@@ -76,7 +76,7 @@ export default class App extends React.Component {
             return (
               <View key={trivia.id} style={styles.cardContainer}>
                 <View style={styles.card}>
-                  <Text style={styles.cardText}>{trivia.text}</Text>
+                  <Text style={styles.cardText}>{trivia}</Text>
                 </View>
               </View>
             );
@@ -100,7 +100,7 @@ export default class App extends React.Component {
     return (
       <SafeAreaView style={styles.container}>
         <StatusBar
-          backgroundColor="#4FD0E9"
+          backgroundColor="#ecf0f1"
           barStyle="light-content"
         />
         {this.rendermathTrivia()}
@@ -113,10 +113,10 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#4FD0E9",
+    backgroundColor: '#000',
   },
   cardContainer: {
-    backgroundColor: 'transparent',
+    // backgroundColor: 'transparent',
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: '#E8E8E8',
     justifyContent: 'center',
-    backgroundColor: '#E8E8E8',
+    backgroundColor: 'white',
     paddingVertical: 20,
     paddingHorizontal: 30,
   },
